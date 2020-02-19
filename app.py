@@ -19,6 +19,7 @@ def roman_to_arabic(matched: re.Match) -> str:
     # for example: "MMM" -> [1000,1000,1000]
     values = [trans[r] for r in roman]
     # Some magic which convert numbers frequencies to one number
+    # https://codereview.stackexchange.com/a/141413
     return '{0}'.format(sum(
         val if val >= next_val else -val
         for val, next_val in zip(values[:-1], values[1:])
